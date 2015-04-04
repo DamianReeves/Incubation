@@ -1,4 +1,4 @@
-﻿namespace FSharp.ProjectTemplate
+namespace Incubation
 
 /// Documentation for my library
 ///
