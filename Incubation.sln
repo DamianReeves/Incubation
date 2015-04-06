@@ -1,6 +1,7 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{63297B98-5CED-492C-A5B7-A5B4F73CF142}"
 	ProjectSection(SolutionItems) = preProject
 		paket.dependencies = paket.dependencies
@@ -13,8 +14,10 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Incubation", "src\Incubatio
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "project", "project", "{BF60BC93-E09B-4E5F-9D85-95A519479D54}"
 	ProjectSection(SolutionItems) = preProject
+		build.cmd = build.cmd
 		build.fsx = build.fsx
 		README.md = README.md
+		release.cmd = release.cmd
 		RELEASE_NOTES.md = RELEASE_NOTES.md
 	EndProjectSection
 EndProject
@@ -34,6 +37,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{ED8079DD
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Incubation.Tests", "tests\Incubation.Tests\Incubation.Tests.fsproj", "{B795A29C-6878-4BAB-AF58-B2E0A4EFD294}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Incubation.Messaging", "src\Incubation.Messaging\Incubation.Messaging.fsproj", "{5577D48C-9577-42E5-AA23-FABF2526F756}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Incubation.Messaging.Tests", "tests\Incubation.Messaging.Tests\Incubation.Messaging.Tests.csproj", "{1E72803F-2CC9-454C-840C-75652AFD3D74}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Incubation.Data.Ado", "src\Incubation.Data.Ado\Incubation.Data.Ado.csproj", "{306EA710-043F-42C8-A0DA-FB4846823295}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Incubation.Data.Ado.Tests", "tests\Incubation.Data.Ado.Tests\Incubation.Data.Ado.Tests.csproj", "{4F8F67F7-1398-44FB-B788-2DC0837BDB4B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +59,22 @@ Global
 		{B795A29C-6878-4BAB-AF58-B2E0A4EFD294}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B795A29C-6878-4BAB-AF58-B2E0A4EFD294}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B795A29C-6878-4BAB-AF58-B2E0A4EFD294}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5577D48C-9577-42E5-AA23-FABF2526F756}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5577D48C-9577-42E5-AA23-FABF2526F756}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5577D48C-9577-42E5-AA23-FABF2526F756}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5577D48C-9577-42E5-AA23-FABF2526F756}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E72803F-2CC9-454C-840C-75652AFD3D74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E72803F-2CC9-454C-840C-75652AFD3D74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E72803F-2CC9-454C-840C-75652AFD3D74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E72803F-2CC9-454C-840C-75652AFD3D74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{306EA710-043F-42C8-A0DA-FB4846823295}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{306EA710-043F-42C8-A0DA-FB4846823295}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{306EA710-043F-42C8-A0DA-FB4846823295}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{306EA710-043F-42C8-A0DA-FB4846823295}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F8F67F7-1398-44FB-B788-2DC0837BDB4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F8F67F7-1398-44FB-B788-2DC0837BDB4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F8F67F7-1398-44FB-B788-2DC0837BDB4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F8F67F7-1398-44FB-B788-2DC0837BDB4B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -56,5 +83,7 @@ Global
 		{83F16175-43B1-4C90-A1EE-8E351C33435D} = {A6A6AF7D-D6E3-442D-9B1E-58CC91879BE1}
 		{8E6D5255-776D-4B61-85F9-73C37AA1FB9A} = {A6A6AF7D-D6E3-442D-9B1E-58CC91879BE1}
 		{B795A29C-6878-4BAB-AF58-B2E0A4EFD294} = {ED8079DD-2B06-4030-9F0F-DC548F98E1C4}
+		{1E72803F-2CC9-454C-840C-75652AFD3D74} = {ED8079DD-2B06-4030-9F0F-DC548F98E1C4}
+		{4F8F67F7-1398-44FB-B788-2DC0837BDB4B} = {ED8079DD-2B06-4030-9F0F-DC548F98E1C4}
 	EndGlobalSection
 EndGlobal
