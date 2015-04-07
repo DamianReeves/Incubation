@@ -39,6 +39,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Emit\IRecordFactory.cs" />
+    <Compile Include="Emit\RecordFactory.cs" />
+    <Compile Include="IRecordReader.cs" />
     <Compile Include="RecordPropertyInfo.cs" />
     <Compile Include="ResultReader.cs" />
     <Compile Include="Emit\ResultRecordBuilder.cs" />

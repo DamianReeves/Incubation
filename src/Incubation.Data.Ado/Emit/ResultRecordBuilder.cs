@@ -13,21 +13,25 @@ namespace Incubation.Data.Emit
             return CreateRecord((IEnumerable<RecordPropertyInfo>) properties);
         }
 
-        public static object CreateRecord(IEnumerable<RecordPropertyInfo> columns)
+        public static object CreateRecord(IEnumerable<RecordPropertyInfo> properties)
         {
-            var myType = CompileResultType(columns);
-            var myObject = Activator.CreateInstance(myType);
-            return myObject;
+            var factory = GetFactory(properties);
+            return factory.Create();
         }
 
-        public static Type CompileResultType(IEnumerable<RecordPropertyInfo> columns)
+        public static IRecordFactory GetFactory(this IEnumerable<RecordPropertyInfo> properties)
+        {
+            var recordType = CompileResultType(properties);
+            return new RecordFactory(recordType);
+        }
+
+        public static Type CompileResultType(IEnumerable<RecordPropertyInfo> properties)
         {
             TypeBuilder tb = GetTypeBuilder();
             ConstructorBuilder constructor = tb.DefineDefaultConstructor(MethodAttributes.Public | MethodAttributes.SpecialName | MethodAttributes.RTSpecialName);
 
-            // NOTE: assuming your list contains Field objects with fields FieldName(string) and FieldType(Type)
-            foreach (var column in columns)
-                CreateProperty(tb, column.Name, column.PropertyType);
+            foreach (var property in properties)
+                CreateProperty(tb, property.Name, property.PropertyType);
 
             Type objectType = tb.CreateType();
             return objectType;
@@ -36,9 +40,9 @@ namespace Incubation.Data.Emit
         private static TypeBuilder GetTypeBuilder()
         {
             var typeSignature = "MyDynamicType";
-            var an = new AssemblyName(typeSignature);
+            var an = new AssemblyName("Generated.DataRecords");
             AssemblyBuilder assemblyBuilder = AppDomain.CurrentDomain.DefineDynamicAssembly(an, AssemblyBuilderAccess.Run);
-            ModuleBuilder moduleBuilder = assemblyBuilder.DefineDynamicModule("MainModule");
+            ModuleBuilder moduleBuilder = assemblyBuilder.DefineDynamicModule("Generated.DataRecords");
             TypeBuilder tb = moduleBuilder.DefineType(typeSignature
                 , TypeAttributes.Public |
                   TypeAttributes.Class |
@@ -46,7 +50,7 @@ namespace Incubation.Data.Emit
                   TypeAttributes.AnsiClass |
                   TypeAttributes.BeforeFieldInit |
                   TypeAttributes.AutoLayout
-                , null);
+                , typeof(ResultRecord));
             return tb;
         }
 
