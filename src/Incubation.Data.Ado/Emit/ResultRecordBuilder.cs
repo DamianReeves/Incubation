@@ -1,29 +1,33 @@
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Reflection;
 using System.Reflection.Emit;
-using PropertyAttributes = System.Reflection.PropertyAttributes;
+//using PropertyAttributes = System.Reflection.PropertyAttributes;
 
-namespace Incubation.Data.Ado
+namespace Incubation.Data.Emit
 {
-    public static class ResultRecordTypeBuilder
+    public static class ResultRecordBuilder
     {
-        public static object CreateFrom(IEnumerable<DataColumnInfo> columns)
+        public static object CreateRecord(params RecordPropertyInfo[] properties)
+        {
+            return CreateRecord((IEnumerable<RecordPropertyInfo>) properties);
+        }
+
+        public static object CreateRecord(IEnumerable<RecordPropertyInfo> columns)
         {
             var myType = CompileResultType(columns);
             var myObject = Activator.CreateInstance(myType);
             return myObject;
         }
 
-        public static Type CompileResultType(IEnumerable<DataColumnInfo> columns)
+        public static Type CompileResultType(IEnumerable<RecordPropertyInfo> columns)
         {
             TypeBuilder tb = GetTypeBuilder();
             ConstructorBuilder constructor = tb.DefineDefaultConstructor(MethodAttributes.Public | MethodAttributes.SpecialName | MethodAttributes.RTSpecialName);
 
             // NOTE: assuming your list contains Field objects with fields FieldName(string) and FieldType(Type)
             foreach (var column in columns)
-                CreateProperty(tb, column.ColumnName, column.DataType);
+                CreateProperty(tb, column.Name, column.PropertyType);
 
             Type objectType = tb.CreateType();
             return objectType;

@@ -7,7 +7,7 @@
     <ProjectGuid>{306EA710-043F-42C8-A0DA-FB4846823295}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Incubation.Data.Ado</RootNamespace>
+    <RootNamespace>Incubation.Data</RootNamespace>
     <AssemblyName>Incubation.Data.Ado</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -39,9 +39,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataColumnInfo.cs" />
+    <Compile Include="RecordPropertyInfo.cs" />
     <Compile Include="ResultReader.cs" />
-    <Compile Include="ResultRecordTypeBuilder.cs" />
+    <Compile Include="Emit\ResultRecordBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
