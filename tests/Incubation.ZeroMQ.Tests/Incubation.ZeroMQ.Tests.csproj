@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Basics\HelloWorld.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ZGuide\Chapter3\InterBrokerRouting.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="paket.references" />
