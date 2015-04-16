@@ -49,6 +49,8 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Incubation.Reflection.Emit"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZeroMQDemos", "src\ZeroMQDemos\ZeroMQDemos.csproj", "{0A7F577A-D653-4270-98B6-D43AAFE2F8C8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Incubation.ZeroMQ.Tests", "tests\Incubation.ZeroMQ.Tests\Incubation.ZeroMQ.Tests.csproj", "{25D0B8F8-0059-4850-BD3D-36CB593CAB2C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +89,10 @@ Global
 		{0A7F577A-D653-4270-98B6-D43AAFE2F8C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A7F577A-D653-4270-98B6-D43AAFE2F8C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A7F577A-D653-4270-98B6-D43AAFE2F8C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{25D0B8F8-0059-4850-BD3D-36CB593CAB2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25D0B8F8-0059-4850-BD3D-36CB593CAB2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25D0B8F8-0059-4850-BD3D-36CB593CAB2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25D0B8F8-0059-4850-BD3D-36CB593CAB2C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -97,5 +103,6 @@ Global
 		{B795A29C-6878-4BAB-AF58-B2E0A4EFD294} = {ED8079DD-2B06-4030-9F0F-DC548F98E1C4}
 		{1E72803F-2CC9-454C-840C-75652AFD3D74} = {ED8079DD-2B06-4030-9F0F-DC548F98E1C4}
 		{4F8F67F7-1398-44FB-B788-2DC0837BDB4B} = {ED8079DD-2B06-4030-9F0F-DC548F98E1C4}
+		{25D0B8F8-0059-4850-BD3D-36CB593CAB2C} = {ED8079DD-2B06-4030-9F0F-DC548F98E1C4}
 	EndGlobalSection
 EndGlobal
