@@ -45,6 +45,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Incubation.Data.Ado", "src\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Incubation.Data.Ado.Tests", "tests\Incubation.Data.Ado.Tests\Incubation.Data.Ado.Tests.csproj", "{4F8F67F7-1398-44FB-B788-2DC0837BDB4B}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Incubation.Reflection.Emit", "src\Incubation.Reflection.Emit\Incubation.Reflection.Emit.fsproj", "{47F254FE-739A-4217-8966-91C5788C79EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZeroMQDemos", "src\ZeroMQDemos\ZeroMQDemos.csproj", "{0A7F577A-D653-4270-98B6-D43AAFE2F8C8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +79,14 @@ Global
 		{4F8F67F7-1398-44FB-B788-2DC0837BDB4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F8F67F7-1398-44FB-B788-2DC0837BDB4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F8F67F7-1398-44FB-B788-2DC0837BDB4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47F254FE-739A-4217-8966-91C5788C79EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47F254FE-739A-4217-8966-91C5788C79EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47F254FE-739A-4217-8966-91C5788C79EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47F254FE-739A-4217-8966-91C5788C79EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A7F577A-D653-4270-98B6-D43AAFE2F8C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A7F577A-D653-4270-98B6-D43AAFE2F8C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A7F577A-D653-4270-98B6-D43AAFE2F8C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A7F577A-D653-4270-98B6-D43AAFE2F8C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

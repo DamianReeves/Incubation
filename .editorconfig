@@ -1,0 +1,19 @@
+; 4-column space indentation
+[*.cs]
+indent_style = space
+indent_size = 4
+
+; 2-column tab indentation
+[*.js]
+indent_style = tab
+indent_size = 2
+
+; 2-column tab indentation
+[*.fs]
+indent_style = space
+indent_size = 2
+
+; 2-column tab indentation
+[*.fsx]
+indent_style = space
+indent_size = 2

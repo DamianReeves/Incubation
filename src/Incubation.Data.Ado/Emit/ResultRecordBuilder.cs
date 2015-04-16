@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using System.Reflection.Emit;
 //using PropertyAttributes = System.Reflection.PropertyAttributes;
@@ -15,17 +16,17 @@ namespace Incubation.Data.Emit
 
         public static object CreateRecord(IEnumerable<RecordPropertyInfo> properties)
         {
-            var factory = GetFactory(properties);
+            var factory = GetRecordFactory(properties);
             return factory.Create();
         }
 
-        public static IRecordFactory GetFactory(this IEnumerable<RecordPropertyInfo> properties)
+        public static IRecordFactory GetRecordFactory(this IEnumerable<RecordPropertyInfo> properties)
         {
             var recordType = CompileResultType(properties);
             return new RecordFactory(recordType);
         }
 
-        public static Type CompileResultType(IEnumerable<RecordPropertyInfo> properties)
+        public static TypeBuilder BuildType(IEnumerable<RecordPropertyInfo> properties)
         {
             TypeBuilder tb = GetTypeBuilder();
             ConstructorBuilder constructor = tb.DefineDefaultConstructor(MethodAttributes.Public | MethodAttributes.SpecialName | MethodAttributes.RTSpecialName);
@@ -33,8 +34,20 @@ namespace Incubation.Data.Emit
             foreach (var property in properties)
                 CreateProperty(tb, property.Name, property.PropertyType);
 
+            return tb;
+        }
+
+        public static Type CompileResultType(IEnumerable<RecordPropertyInfo> properties)
+        {
+            var tb = BuildType(properties);
             Type objectType = tb.CreateType();
+
             return objectType;
+        }
+
+        public static void WriteRecordAssembly(string path, params RecordPropertyInfo[] properties)
+        {
+            var tb = BuildType(properties);
         }
 
         private static TypeBuilder GetTypeBuilder()
@@ -51,6 +64,7 @@ namespace Incubation.Data.Emit
                   TypeAttributes.BeforeFieldInit |
                   TypeAttributes.AutoLayout
                 , typeof(ResultRecord));
+
             return tb;
         }
 

@@ -46,5 +46,19 @@ namespace Incubation.Data.Emit
                 RecordPropertyInfo.Create<bool>("FooBool", 2)
             );
         }
+
+        public class GetFactoryTests
+        {
+            [Fact]
+            public void GetFactoryShouldReturnFactoryWithRecordTypeAssignableToIResultRecord()
+            {
+                var factory = new[]
+                {
+                    RecordPropertyInfo.Create<string>("Name", 0)
+                }.GetRecordFactory();
+
+                factory.RecordType.Should().BeAssignableTo<IResultRecord>();
+            } 
+        }
     }
 }
